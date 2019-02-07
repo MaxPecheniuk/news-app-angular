@@ -8,19 +8,13 @@ import { StatysModel } from '../models/statys.model';
   styleUrls: ['./submit-form.component.scss']
 })
 export class SubmitFormComponent implements OnInit {
-  // selectedType: string;
   submitForm = new FormGroup({
-    subjectType: new FormControl(''),
-    subjectText: new FormControl(''),
-    subjectStartDate: new FormControl(''),
-    subjectEndDate: new FormControl(''),
-    subjectStatus: new FormControl('')
+    subjectType: new FormControl('', Validators.required),
+    subjectText: new FormControl('', Validators.required),
+    subjectStartDate: new FormControl('', Validators.required),
+    subjectEndDate: new FormControl('', Validators.required),
+    subjectStatus: new FormControl(false)
   });
-  // subjectStatus: Array<StatysModel> = [
-  //   {value: 'news', viewValue: 'News'},
-  //   {value: 'Announcement', viewValue: 'Announcement'},
-  //   {value: 'Support request', viewValue: 'Support request'}
-  // ]
   constructor() { }
 
   ngOnInit() {
