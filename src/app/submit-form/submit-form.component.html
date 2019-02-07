@@ -1,0 +1,63 @@
+<!--<app-input-field></app-input-field>-->
+
+<form [formGroup]="submitForm"
+      (ngSubmit)="onSubmit()"
+>
+  <label>
+    Type:
+    <input type="text" formControlName="subjectType">
+
+  </label>
+
+  <!--<mat-form-field>-->
+    <!--<select matNativeControl placeholder="Favorite car" [(ngModel)]="selectedType" name="car">-->
+      <!--<option value="" selected></option>-->
+      <!--<option *ngFor="let option of subjectStatus" [value]="option.value">-->
+        <!--{{option.viewValue}}-->
+      <!--</option>-->
+    <!--</select>-->
+  <!--</mat-form-field>-->
+<div>
+  <mat-form-field>
+    <input matInput placeholder="Input">
+  </mat-form-field>
+</div>
+
+
+  <!--DATE START-->
+  <div>
+    <mat-form-field>
+      <input matInput formControlName="subjectStartDate" [matDatepicker]="picker1" placeholder="Choose a start date">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1 startView="month" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <input matInput formControlName="subjectEndDate" [matDatepicker]="picker" placeholder="Choose a end date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <!--DATE END-->
+
+  <label>
+
+    <!--<input type="checkbox" formControlName="SubjectStatus">-->
+    <section class="example-section">
+      Draft
+      <mat-slide-toggle
+        class="example-margin"
+        formControlName="subjectStatus"
+        [color]="color"
+        [checked]="checked"
+        [disabled]="disabled">
+        Published
+      </mat-slide-toggle>
+    </section>
+  </label>
+  <button type="submit" [disabled]="!submitForm.valid">Submit</button>
+</form>
+
+<!--</div>-->
