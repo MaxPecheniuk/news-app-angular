@@ -15,11 +15,21 @@ import {
   MatFormFieldModule, MatInputModule, MatNativeDateModule, MatSelectModule
 } from '@angular/material';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
+import { HttpClientModule } from '@angular/common/http';
+// import { FirebaseService } from './firebase.service';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { apiConfig } from './config/apiConfig';
+import { FirebaseService } from './firebase.service';
+import { NewsCardComponent } from './news-card/news-card.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     SubmitFormComponent,
+    NewsCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,9 +44,13 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatNativeDateModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(apiConfig)
   ],
-  providers: [MatDatepickerModule],
+  providers: [MatDatepickerModule, FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

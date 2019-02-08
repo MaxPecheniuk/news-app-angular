@@ -5,7 +5,7 @@
     <mat-select
       formControlName="subjectType"
       placeholder="Select"
-      required
+      
     >
       <mat-option value="news">News</mat-option>
       <mat-option value="announcement">Announcement</mat-option>
@@ -18,22 +18,25 @@
       <input
         matInput
         placeholder="Input"
-        required
+        
         formControlName="subjectText"
       >
     </mat-form-field>
   </div>
 
+  <!--<input type="date" formControlName="subjectStartDate">-->
 
   <!--DATE START-->
   <div>
     <mat-form-field>
       <input
         matInput
+        [matDatepickerFilter]="myFilter"
+
         formControlName="subjectStartDate"
         [matDatepicker]="picker1"
         placeholder="Choose a start date"
-        required
+
       >
       <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
       <mat-datepicker #picker1 startView="month"></mat-datepicker>
@@ -45,10 +48,11 @@
     <mat-form-field>
       <input
         matInput
+        [matDatepickerFilter]=""
         formControlName="subjectEndDate"
         [matDatepicker]="picker"
         placeholder="Choose a end date"
-        required
+
       >
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker startView="month"></mat-datepicker>
